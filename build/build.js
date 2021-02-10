@@ -3,9 +3,10 @@ const { build } = require('esbuild')
 
 // Main
 build({
-  target: 'node',
+  platform: 'node',
   outfile: join(process.cwd(), 'dist', 'main.js'),
-  bundle: join(process.cwd(), 'src', 'main', 'main.ts'),
+  bundle: true,
+  entryPoints: [join(process.cwd(), 'src', 'main', 'main.ts')],
   minify: process.env.NODE_ENV === 'development'
 })
 
@@ -14,5 +15,6 @@ build({
   watch: process.env.NODE_ENV === 'development',
   outfile: join(process.cwd(), 'dist', 'renderer.js'),
   minify: process.env.NODE_ENV === 'development',
-  bundle: join(process.cwd(), 'src', 'renderer', 'main.ts')
+  bundle: true,
+  entryPoints: [join(process.cwd(), 'src', 'renderer', 'main.ts')]
 })
