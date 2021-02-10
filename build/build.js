@@ -10,6 +10,7 @@ build({
   bundle: true,
   entryPoints: [join(process.cwd(), 'src', 'main', 'main.ts')],
   minify: process.env.NODE_ENV === 'development',
+  external: ['electron'],
   banner
 }).then(() => renderer().then(() => process.exit(0)))
 
