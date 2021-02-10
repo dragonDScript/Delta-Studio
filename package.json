@@ -9,7 +9,8 @@
   "private": true,
   "scripts": {
     "dev": "cross-env NODE_ENV=development node build/build.js && electron-forge start",
-    "package": "cross-env NODE_ENV=production node build/build.js && electron-forge package"
+    "package": "cross-env NODE_ENV=production node build/build.js && electron-forge package",
+    "lint": "eslint ./src/*/* --fix"
   },
   "devDependencies": {
     "@types/electron": "^1.6.10",
