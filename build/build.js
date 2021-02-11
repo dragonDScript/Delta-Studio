@@ -1,5 +1,6 @@
 const { join } = require('path')
 const { build } = require('esbuild')
+const { createReadStream, createWriteStream } = require('fs')
 
 const banner = '/* eslint-disable */'
 
@@ -12,7 +13,10 @@ build({
   minify: process.env.NODE_ENV === 'development',
   external: ['electron'],
   banner
-}).then(() => renderer().then(() => process.exit(0)))
+}).then(() => {
+  createReadStream(join(process.cwd(), 'src', 'renderer', 'index.html')).pipe(createWriteStream(join(process.cwd(), 'dist', 'index.html')))
+  renderer().then(() => process.exit(0))
+})
 
 // Renderer
 const renderer = () => build({
