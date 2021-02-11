@@ -1,12 +1,15 @@
 const { join } = require('path')
 const { build } = require('esbuild')
-const { createReadStream, createWriteStream, watch } = require('fs')
+const { createReadStream, createWriteStream } = require('fs')
 
 const banner = '/* eslint-disable */'
 
 const buildRendererCode = () => {
   createReadStream(join(process.cwd(), 'src', 'renderer', 'index.html')).pipe(createWriteStream(join(process.cwd(), 'dist', 'index.html')))
-  renderer()
+  renderer().then(() => {
+    console.log('Built.')
+    process.exit(0)
+  })
 }
 
 // Main
@@ -29,8 +32,3 @@ const renderer = () => build({
   entryPoints: [join(process.cwd(), 'src', 'renderer', 'main.ts')],
   banner
 })
-
-if (process.env.NODE_ENV === 'development') {
-  const watcher = watch(process.cwd())
-  watcher.on('change', () => buildRendererCode)
-}
