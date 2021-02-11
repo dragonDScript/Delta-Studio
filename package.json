@@ -1,5 +1,11 @@
 {
-  "build": {},
+  "build": {
+    "asar": false,
+    "files": [
+      "!*",
+      "dist/*"
+    ]
+  },
   "productName": "Delta Studio",
   "name": "delta-studio",
   "version": "0.0.1",
