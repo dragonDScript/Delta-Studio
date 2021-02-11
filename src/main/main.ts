@@ -9,7 +9,9 @@ app.whenReady().then(() => {
       enableRemoteModule: false
     }
   })
-  win.loadURL(app.isPackaged ? 'file://' + join(process.cwd(), 'index.html') : 'http://localhost:3000')
+  win.loadURL(
+    'file://' + join(process.cwd(), 'dist', 'index.html')
+  )
   win.setMenuBarVisibility(false)
 })
 

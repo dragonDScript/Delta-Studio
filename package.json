@@ -10,8 +10,8 @@
   "license": "MIT",
   "private": true,
   "scripts": {
-    "dev": "cross-env NODE_ENV=development node build/build.js && electron .",
-    "package": "cross-env NODE_ENV=production node build/build.js && electron-builder",
+    "dev": "inotifywait -q -m -e close_write ./**/* | while read file; do node build/build.js; done & electron .",
+    "package": "node build/build.js && electron-builder",
     "lint": "eslint ./src/*/* --fix"
   },
   "devDependencies": {
