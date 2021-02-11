@@ -10,7 +10,7 @@ app.whenReady().then(() => {
     }
   })
   win.loadURL(
-    'file://' + join(process.cwd(), 'dist', 'index.html')
+    'file://' + join(__dirname, 'index.html')
   )
   win.setMenuBarVisibility(false)
 })
