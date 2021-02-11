@@ -10,7 +10,7 @@
   "license": "MIT",
   "private": true,
   "scripts": {
-    "dev": "cross-env NODE_ENV=development node build/build.js && electron .",
+    "dev": "cross-env NODE_ENV=development node build/build.js & electron .",
     "package": "cross-env NODE_ENV=production node build/build.js && electron-builder",
     "lint": "eslint ./src/*/* --fix"
   },
