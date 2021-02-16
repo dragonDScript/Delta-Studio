@@ -3,7 +3,8 @@
     "asar": false,
     "files": [
       "!*",
-      "dist/*"
+      "dist/main.js",
+      "dist/renderer.*"
     ]
   },
   "productName": "Delta Studio",
