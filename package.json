@@ -18,7 +18,7 @@
   "license": "MIT",
   "private": true,
   "scripts": {
-    "dev": "inotifywait -q -m -e close_write ./**/* | while read file; do node build/build.js; done & electron .",
+    "dev": "inotifywait -q -m -e close_write ./src/**/* | while read file; do node build/build.js; done & electron .",
     "package": "node build/build.js && electron-builder",
     "lint": "eslint ./src/*/* --fix"
   },
