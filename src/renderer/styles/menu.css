@@ -3,9 +3,9 @@
     height: 3em;
     -webkit-app-region: drag;
     display: grid;
-    grid-template-columns: 32px 1fr 10em;
+    grid-template-columns: 32px 1fr calc(42.6px * 3);
     grid-template-rows: 1fr;
-    justify-items: right;
+    justify-items: stretch;
     background-color: var(--menu-bg);
     user-select: none;
 }
@@ -24,7 +24,7 @@
 }
 #menu .buttons button.button {
     display: flex;
-    justify-content: center;
+    justify-content: right;
     align-items: center;
     color: white;
     background-color: rgba(143, 143, 143, 0.459);
@@ -46,5 +46,11 @@
 #menu section.img img {
     width: 16px;
     height: 16px;
-    -webkit-app-region: drag;
+    -webkit-app-region: no-drag;
+}
+#menu .centre {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: var(--text-color-on-menu);
 }

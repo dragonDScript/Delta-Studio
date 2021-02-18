@@ -1,5 +1,7 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
+
 body {
-    font-family: 'Free Sans', sans-serif;
+    font-family: 'Open Sans', sans-serif !important;
     background-color: var(--bg-color);
     color: var(--text-color);
     margin: 0;

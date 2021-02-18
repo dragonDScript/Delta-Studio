@@ -1,5 +1,6 @@
 :root {
     --bg-color: white;
     --text-color: black;
+    --text-color-on-menu: white;
     --menu-bg: rgb(37, 37, 37);
 }

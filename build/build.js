@@ -30,6 +30,9 @@ const renderer = () => build({
   outfile: join(process.cwd(), 'dist', 'renderer.js'),
   minify: process.env.NODE_ENV === 'development',
   bundle: true,
-  entryPoints: [join(process.cwd(), 'src', 'renderer', 'main.ts')],
-  banner
+  entryPoints: [join(process.cwd(), 'src', 'renderer', 'main.tsx')],
+  banner,
+  define: {
+    'process.env.NODE_ENV': process.env.NODE_ENV
+  }
 })
