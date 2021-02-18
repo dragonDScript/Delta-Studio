@@ -1,0 +1,56 @@
+#menu {
+    width: 100%;
+    height: 3em;
+    -webkit-app-region: drag;
+    display: grid;
+    grid-template-columns: 32px 1fr calc(42.6px * 3);
+    grid-template-rows: 1fr;
+    justify-items: stretch;
+    background-color: var(--menu-bg);
+    user-select: none;
+}
+#menu section * {
+    -webkit-app-region: no-drag;
+}
+#menu .buttons {
+    display: flex;
+    justify-content: right;
+}
+#menu .buttons button.cross {
+    background-color: red !important;
+}
+#menu .buttons button.cross:hover {
+    background-color: darkred !important;
+}
+#menu .buttons button.button {
+    display: flex;
+    justify-content: right;
+    align-items: center;
+    color: white;
+    background-color: rgba(143, 143, 143, 0.459);
+    height: 100%;
+    padding: 0 1em;
+    outline: none;
+    transition: 0.05s linear all;
+}
+#menu .buttons button.button:hover {
+    background-color: rgba(143, 143, 143, 0.8);
+}
+
+#menu section.img {
+    width: 32px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#menu section.img img {
+    width: 16px;
+    height: 16px;
+    -webkit-app-region: no-drag;
+}
+#menu .centre {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: var(--text-color-on-menu);
+}

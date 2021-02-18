@@ -1,14 +1,14 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <meta http-equiv="Content-Security-Policy" content="default-src 'self'">
+        <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'">
         <link rel="stylesheet" href="./renderer.css">
         <link rel="stylesheet" href="../node_modules/codemirror/lib/codemirror.css">
         <title>Delta Edit</title>
     </head>
 
     <body>
-        
+        <div id="root"></div>
     </body>
     <script src="./renderer.js" defer></script>
 </html>
