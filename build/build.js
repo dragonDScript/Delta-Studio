@@ -6,6 +6,7 @@ const banner = '/* eslint-disable */'
 
 const buildRendererCode = () => {
   createReadStream(join(process.cwd(), 'src', 'renderer', 'index.html')).pipe(createWriteStream(join(process.cwd(), 'dist', 'index.html')))
+  createReadStream(join(process.cwd(), 'src', 'main', 'preload.js')).pipe(createWriteStream(join(process.cwd(), 'dist', 'preload.js')))
   renderer().then(() => {
     console.log('Built.')
     process.exit(0)

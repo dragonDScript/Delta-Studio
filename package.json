@@ -5,7 +5,8 @@
       "!*",
       "dist/main.js",
       "dist/renderer.*",
-      "dist/index.html"
+      "dist/index.html",
+      "build/icon.*"
     ]
   },
   "productName": "Delta Studio",
