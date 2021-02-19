@@ -31,14 +31,22 @@ const template = (win: BrowserWindow) => Menu.buildFromTemplate([
     submenu: [
       {
         label: 'Save',
+        click: () => win.webContents.send('file.save', 'current'),
         accelerator: 'CmdOrCtrl+S'
       },
       {
         label: 'Duplicate',
+        click: () => win.webContents.send('file.duplicate', 'current'),
         accelerator: 'CmdOrCtrl+D'
       },
       {
+        label: 'Lint',
+        click: () => win.webContents.send('file.lint', 'current'),
+        accelerator: 'Alt+L'
+      },
+      {
         label: 'Close file',
+        click: () => win.webContents.send('file.save', 'current'),
         accelerator: 'CmdOrCtrl+W'
       }
     ]
