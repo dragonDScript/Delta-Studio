@@ -33,6 +33,6 @@ const renderer = () => build({
   entryPoints: [join(process.cwd(), 'src', 'renderer', 'main.tsx')],
   banner,
   define: {
-    'process.env.NODE_ENV': process.env.NODE_ENV
+    'process.env.NODE_ENV': `"${process.env.NODE_ENV}"`
   }
 })
