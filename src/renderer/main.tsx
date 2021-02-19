@@ -1,11 +1,14 @@
 import './tailwind.min.css'
 import './styles/default.css'
+import './styles/main.css'
 
 import './styles/menu.css'
 
 // eslint-disable-next-line no-use-before-define
 import React from 'react'
 import ReactDOM from 'react-dom'
+
+import StatusBar from './components/StatusBar'
 
 const app = <div id="app">
     <div id="menu">
@@ -19,6 +22,8 @@ const app = <div id="app">
             <button className="button cross" onClick={() => window.close()}>X</button>
         </section>
     </div>
+    <div id="content"></div>
+    <StatusBar />
 </div>
 
 ReactDOM.render(app, document.getElementById('root'))
