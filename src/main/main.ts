@@ -78,7 +78,7 @@ app.whenReady().then(() => {
   const win = new BrowserWindow({
     frame: false,
     minHeight: 5 * 100,
-    minWidth: 5 *100,
+    minWidth: 5 * 100,
     webPreferences: {
       preload: join(__dirname, 'preload.js'),
       contextIsolation: true,

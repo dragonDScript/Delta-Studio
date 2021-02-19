@@ -1,0 +1,42 @@
+.tabs {
+    width: 100% !important;
+    height: 4em;
+    background-color: var(--tabs-bg);
+    overflow-x: visible;
+    display: flex;
+    flex-direction: row;
+}
+.tabs::-webkit-scrollbar {
+    background-color: transparent;
+}
+.tabs::-webkit-scrollbar-thumb {
+    border-radius: 1em;
+    background-color: lightgray;
+}
+.tabs section {
+    width: auto;
+    padding: 1em;
+    display: flex;
+    align-items: center;
+    background-color: var(--tab-bg);
+    color: var(--tab-text-color);
+    margin-right: 0.25em;
+}
+.tabs section * {
+    user-select: none;
+}
+.tabs section .cross {
+    color: var(--cross-color);
+    margin-left: 0.25em;
+}
+.plus-tab {
+    height: 100%;
+    width: 2em;
+    padding: 0;
+    font-size: 2em;
+    background-color: gray;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
