@@ -1,6 +1,71 @@
 import { app, BrowserWindow, Menu, ipcMain, dialog } from 'electron'
 import { join } from 'path'
 
+const template = (win: BrowserWindow) => Menu.buildFromTemplate([
+  {
+    label: 'Studio',
+    submenu: [
+      {
+        label: 'About Studio',
+        click () {
+          dialog.showMessageBox(win, {
+            title: app.getName(),
+            buttons: ['OK'],
+            message: 'An IDE for you',
+            detail: 'c) gaetgu and dragonDScript 2021',
+            type: 'info'
+          })
+        }
+      },
+      {
+        type: 'separator'
+      },
+      {
+        role: 'quit',
+        accelerator: 'CmdOrCtrl+Q'
+      }
+    ]
+  },
+  {
+    label: 'File',
+    submenu: [
+      {
+        label: 'Save',
+        accelerator: 'CmdOrCtrl+S'
+      },
+      {
+        label: 'Duplicate',
+        accelerator: 'CmdOrCtrl+D'
+      },
+      {
+        label: 'Close file',
+        accelerator: 'CmdOrCtrl+W'
+      }
+    ]
+  },
+  {
+    role: 'editMenu'
+  },
+  {
+    role: 'viewMenu'
+  },
+  {
+    label: 'Window',
+    submenu: [
+      {
+        label: 'Minimize',
+        accelerator: 'CmdOrCtrl+M',
+        click: () => win.minimize()
+      },
+      {
+        label: 'Close',
+        click: () => win.close(),
+        accelerator: 'Alt+Q'
+      }
+    ]
+  }
+])
+
 app.whenReady().then(() => {
   const win = new BrowserWindow({
     frame: false,
@@ -20,59 +85,11 @@ app.whenReady().then(() => {
   ipcMain.on('minimize-main', () => win.minimize())
   ipcMain.on('maximize-main', () => win.isMaximized() ? win.unmaximize() : win.maximize())
   ipcMain.on('trigger-context-menu', () => {
-    const menu = Menu.buildFromTemplate([
-      {
-        label: 'Studio',
-        submenu: [
-          {
-            label: 'About Studio',
-            click () {
-              dialog.showMessageBox(win, {
-                title: app.getName(),
-                buttons: ['OK'],
-                message: 'An IDE for you',
-                detail: 'c) gaetgu and dragonDScript 2021',
-                type: 'info'
-              })
-            }
-          },
-          {
-            role: 'close'
-          }
-        ]
-      },
-      {
-        label: 'File',
-        submenu: [
-          {
-            label: 'Save'
-          },
-          {
-            label: 'Duplicate'
-          },
-          {
-            label: 'Close'
-          }
-        ]
-      },
-      {
-        label: 'Edit'
-      }
-    ])
-    menu.popup({
+    template(win).popup({
       window: win,
       x: 12,
       y: 12
     })
   })
+  Menu.setApplicationMenu(template(win))
 })
-
-const menu = Menu.buildFromTemplate([{
-  role: process.platform === 'darwin' ? 'quit' : 'close'
-}, {
-  role: 'toggleDevTools'
-}, {
-  role: 'togglefullscreen'
-}])
-
-Menu.setApplicationMenu(menu)
