@@ -6,7 +6,7 @@ import React, { useState } from 'react'
 export default (props) => {
   const [shown, setShown] = useState(() => false)
   const [list, setList] = useState(() => [])
-  return <div className="status-bar">
+  return <div style={{zIndex: '10'}} className="status-bar">
       <section></section>
       <section>
           <div id="notifications" style={{ display: shown ? 'block' : 'none' }}>
