@@ -17,7 +17,11 @@ export default (props) => {
   }))
   return <div id="content">
     <Explorer files={files} onOpenFile={(file) => {
-      setTabs([...tabs, { name: `${fullpath}/${file}`, uuid: api.generateUUID() }])
+      const uuid = api.generateUUID()
+      api.readFile(`${fullpath}/${file}`, (err, data) => {
+        if (err) throw err
+        setTabs([...tabs, { name: `${fullpath}/${file}`, uuid, value: data.toString() }])
+      })
     }}/>
     <div>
     <div className="tabs">
@@ -36,7 +40,7 @@ export default (props) => {
           if (val.uuid !== active) {
             return null
           }
-          return <CodeMirror key={val.uuid} name={val.name} value="" language={val.language} />
+          return <CodeMirror key={val.uuid} name={val.name} value={val.value} language={val.language} />
         })
     }
     </div>
