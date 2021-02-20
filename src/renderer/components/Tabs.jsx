@@ -40,7 +40,14 @@ export default (props) => {
           if (val.uuid !== active) {
             return null
           }
-          return <CodeMirror key={val.uuid} name={val.name} value={val.value} language={val.language} />
+          setTabs[index] = val
+          console.log({ val })
+          api.onSaveFile(() => {
+            api.writeFileSecure(val.name, val.value.text.join('\n'), (err) => {
+              if (err) throw err
+            })
+          })
+          return <CodeMirror key={val.uuid} name={val.name} value={val.value} onChange={(instance, change) => { val.value = change }} language={val.language} />
         })
     }
     </div>
