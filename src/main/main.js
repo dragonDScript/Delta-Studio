@@ -1,7 +1,7 @@
 import { app, BrowserWindow, Menu, ipcMain, dialog } from 'electron'
 import { join } from 'path'
 
-const template = (win: BrowserWindow) => Menu.buildFromTemplate([
+const template = (win) => Menu.buildFromTemplate([
   {
     label: 'Studio',
     submenu: [
