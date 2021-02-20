@@ -30,9 +30,20 @@ const template = (win: BrowserWindow) => Menu.buildFromTemplate([
     label: 'File',
     submenu: [
       {
-        label: 'New file',
-        click: () => win.webContents.send('new-file'),
-        accelerator: 'CmdOrCtrl+N'
+        label: 'Open folder',
+        click: async () => {
+          const d = await dialog.showOpenDialog(win, {
+            properties: ['openDirectory', 'createDirectory'],
+            title: 'Delta Studio'
+          })
+          if (d.canceled) {
+            console.log('Operation [open-folder] cancelled.')
+            return
+          }
+          console.log(`Opening ${d.filePaths}`)
+          win.webContents.send('open-folder', d.filePaths)
+        },
+        accelerator: 'Ctrl+O'
       },
       {
         type: 'separator'

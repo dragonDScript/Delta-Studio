@@ -18,3 +18,7 @@ body #root #app {
     grid-template-columns: 1fr;
     grid-template-rows: auto 1fr auto;
 }
+#content {
+    display: grid;
+    grid-template-columns: auto 1fr;
+}
