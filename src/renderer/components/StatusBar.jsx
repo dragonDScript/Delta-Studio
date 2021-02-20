@@ -3,7 +3,7 @@ import './StatusBar.css'
 // eslint-disable-next-line no-use-before-define
 import React, { useState } from 'react'
 
-export default (props: {}) => {
+export default (props) => {
   const [shown, setShown] = useState(() => false)
   const [list, setList] = useState(() => [])
   return <div className="status-bar">
