@@ -1,17 +1,16 @@
 // eslint-disable-next-line no-use-before-define
 import React, { useEffect, useState } from 'react'
-
 import '../styles/tabs.css'
 
 import CodeMirror from './CodeMirror'
 import Tab from './Tab'
 import Explorer from './Explorer'
 
-export default (props: any) => {
+export default (props) => {
   const [tabs, setTabs] = useState([])
   const [active, setActive] = useState(null)
   const [fullpath, setFullpath] = useState(null)
-  const [files, setFiles]: any = useState([])
+  const [files, setFiles] = useState([])
   useEffect(() => api.onOpenFolder((fullpath) => {
     setFiles([])
     setFullpath(fullpath)

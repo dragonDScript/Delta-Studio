@@ -3,7 +3,7 @@ import React from 'react'
 
 import './Explorer.css'
 
-export default (props: {files: string[], onOpenFile: (name: string) => null}) => {
+export default (props) => {
   return <div className="explorer">
       {
           props.files.map((val, index, arr) => {

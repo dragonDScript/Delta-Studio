@@ -5,7 +5,7 @@ import CodeMirror from '@uiw/react-codemirror'
 
 import 'codemirror/theme/monokai.css'
 
-export default (props: {value: string, name: string, language: string}) => {
+export default (props) => {
   return <CodeMirror value={props.value} options={{
     theme: 'monokai',
     language: props.language
