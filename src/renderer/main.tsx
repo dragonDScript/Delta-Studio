@@ -15,6 +15,7 @@ import Tab from './components/Tab'
 
 const app = (props) => {
   const [tabs, setTabs] = useState([])
+  useEffect(() => api.onNewFile(() => setTabs([...tabs, { name: 'Unnamed' }])))
   return <div id="app">
     <div id="menu">
         <section className="img">

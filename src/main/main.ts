@@ -30,6 +30,14 @@ const template = (win: BrowserWindow) => Menu.buildFromTemplate([
     label: 'File',
     submenu: [
       {
+        label: 'New file',
+        click: () => win.webContents.send('new-file'),
+        accelerator: 'CmdOrCtrl+N'
+      },
+      {
+        type: 'separator'
+      },
+      {
         label: 'Save',
         click: () => win.webContents.send('file.save', 'current'),
         accelerator: 'CmdOrCtrl+S'
