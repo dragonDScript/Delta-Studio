@@ -6,6 +6,7 @@
       "dist/main.js",
       "dist/renderer.*",
       "dist/index.html",
+      "dist/preload.js",
       "build/icon.*"
     ]
   },
