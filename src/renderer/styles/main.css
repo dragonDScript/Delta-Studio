@@ -1,9 +1,24 @@
-@import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu&display=swap');
 
 body {
-    font-family: 'Open Sans', sans-serif !important;
+    font-family: 'Ubuntu', sans-serif !important;
     background-color: var(--bg-color);
     color: var(--text-color);
     margin: 0;
     padding: 0;
+    height: 100vh;
+    overflow: hidden;
+}
+body #root {
+    height: 100%;
+}
+body #root #app {
+    height: 100%;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto 1fr auto;
+}
+#content {
+    display: grid;
+    grid-template-columns: auto 1fr;
 }

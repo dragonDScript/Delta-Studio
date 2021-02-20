@@ -1,5 +1,6 @@
 import './tailwind.min.css'
 import './styles/default.css'
+import './styles/main.css'
 
 import './styles/menu.css'
 
@@ -7,7 +8,11 @@ import './styles/menu.css'
 import React from 'react'
 import ReactDOM from 'react-dom'
 
-const app = <div id="app">
+import StatusBar from './components/StatusBar'
+import Tabs from './components/Tabs'
+
+const app = (props) => {
+  return <div id="app">
     <div id="menu">
         <section className="img">
             <img draggable="false" src="../build/icon.svg" onClick={() => api.triggerContextMenu()} />
@@ -19,6 +24,9 @@ const app = <div id="app">
             <button className="button cross" onClick={() => window.close()}>X</button>
         </section>
     </div>
+    <Tabs />
+    <StatusBar />
 </div>
+}
 
-ReactDOM.render(app, document.getElementById('root'))
+ReactDOM.render(React.createElement(app), document.getElementById('root'))

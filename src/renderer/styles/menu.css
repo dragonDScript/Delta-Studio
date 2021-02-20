@@ -14,7 +14,7 @@
 }
 #menu .buttons {
     display: flex;
-    justify-content: right;
+    justify-content: flex-end;
 }
 #menu .buttons button.cross {
     background-color: red !important;

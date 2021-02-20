@@ -3,4 +3,8 @@
     --text-color: black;
     --text-color-on-menu: white;
     --menu-bg: rgb(37, 37, 37);
+    --tabs-bg: #111;
+    --tab-bg: rgb(32, 32, 32);
+    --tab-text-color: white;
+    --cross-color: gray;
 }
