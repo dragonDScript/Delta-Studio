@@ -1,5 +1,6 @@
 import { app, BrowserWindow, Menu, ipcMain, dialog } from 'electron'
 import { join } from 'path'
+import { readdir } from 'fs'
 
 const template = (win) => Menu.buildFromTemplate([
   {
@@ -41,7 +42,12 @@ const template = (win) => Menu.buildFromTemplate([
             return
           }
           console.log(`Opening ${d.filePaths}`)
-          win.webContents.send('open-folder', d.filePaths)
+          readdir(d.filePaths[0], {
+            encoding: 'utf-8'
+          }, (err, files) => {
+            if (err) throw err
+            win.webContents.send('open-folder', d.filePaths, files)
+          })
         },
         accelerator: 'Ctrl+O'
       },

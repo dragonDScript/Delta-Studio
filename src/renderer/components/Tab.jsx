@@ -3,6 +3,6 @@ import React from 'react'
 
 export default (props) => {
   return <section onClick={props.onClick}>
-    <p>{props.name}</p> <a href="#" className="cross" onClick={props.onClose}>x</a>
+    <p>{api.basename(props.name)}</p> <a href="#" className="cross" onClick={props.onClose}>x</a>
   </section>
 }

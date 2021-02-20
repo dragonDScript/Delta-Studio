@@ -11,19 +11,19 @@ export default (props) => {
   const [active, setActive] = useState(null)
   const [fullpath, setFullpath] = useState(null)
   const [files, setFiles] = useState([])
-  useEffect(() => api.onOpenFolder((fullpath) => {
-    setFiles([])
+  useEffect(() => api.onOpenFolder((evt, fullpath, files) => {
+    setFiles(files)
     setFullpath(fullpath)
   }))
   return <div id="content">
-    <Explorer files={files} onOpenFile={(name) => {
-      setTabs([...tabs, fullpath + name])
-      return null
+    <Explorer files={files} onOpenFile={(file) => {
+      setTabs([...tabs, { name: `${fullpath}/${file}`, uuid: api.generateUUID() }])
     }}/>
+    <div>
     <div className="tabs">
     {
         tabs.map((val, index, arr) => {
-          return <Tab onClick={() => setActive(val.uuid)} key={val.uuid} name={val.name} language={val.language} onClose={() => {
+          return <Tab onClick={() => setActive(val.uuid)} key={index} name={val.name} language={val.language} onClose={() => {
             const newArr = tabs
             delete newArr[index]
             setTabs(newArr)
@@ -39,5 +39,6 @@ export default (props) => {
           return <CodeMirror key={val.uuid} name={val.name} value="" language={val.language} />
         })
     }
+    </div>
 </div>
 }

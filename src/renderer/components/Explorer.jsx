@@ -7,7 +7,7 @@ export default (props) => {
   return <div className="explorer">
       {
           props.files.map((val, index, arr) => {
-            return <a href="#" onClick={() => props.onOpenFile(val)}>{val}</a>
+            return <a href="#" onClick={() => props.onOpenFile(val)} key={index}>{val}</a>
           })
       }
     </div>
