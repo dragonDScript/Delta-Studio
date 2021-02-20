@@ -13,7 +13,7 @@ export default (props: any) => {
   const [fullpath, setFullpath] = useState(null)
   const [files, setFiles]: any = useState([])
   useEffect(() => api.onOpenFolder((fullpath) => {
-    setFiles(['hola.tsx', 'b.tsx'])
+    setFiles([])
     setFullpath(fullpath)
   }))
   return <div id="content">
