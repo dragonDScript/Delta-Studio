@@ -28,7 +28,7 @@ export default (props) => {
     {
         tabs.map((val, index, arr) => {
           return <Tab onClick={() => setActive(val.uuid)} key={index} name={val.name} language={val.language} onClose={() => {
-            const newArr = tabs
+            const newArr = arr
             delete newArr[index]
             setTabs(newArr)
           }} />
